@@ -32,7 +32,7 @@ function CreateArea(props) {
   const submitNote = () => {
     // console.log(note);
     axios
-      .post("http://localhost:5555/notes", note)
+      .post("https://keeper-alpha.vercel.app/notes", note)
       .then(() => {
         props.onAdd();
         setNote({

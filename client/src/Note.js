@@ -8,7 +8,7 @@ import cancel from "./img/cancel.png";
 function Note(props) {
   const handleDeleteBook = () => {
     axios
-      .delete(`http://localhost:5555/notes/${props.id}`)
+      .delete(`https://keeper-alpha.vercel.app/notes/${props.id}`)
       .then(() => {
         props.onDelete();
       })
@@ -18,7 +18,7 @@ function Note(props) {
   };
   const saveBook = () => {
     axios
-      .put(`http://localhost:5555/notes/${props.id}`, note)
+      .put(`https://keeper-alpha.vercel.app/notes/${props.id}`, note)
       .then(() => {
         saveOrCancel();
         props.onEdit();

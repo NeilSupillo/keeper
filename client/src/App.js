@@ -15,7 +15,7 @@ function App() {
 
   function getBooks() {
     axios
-      .get("http://localhost:5555/notes")
+      .get("https://keeper-alpha.vercel.app/notes")
       .then((response) => {
         data(response.data.data);
         //console.log(response.data.data);
