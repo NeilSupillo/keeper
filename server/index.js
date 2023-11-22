@@ -11,7 +11,7 @@ app.use(
   cors({
 
     origin: ["https://keeper-frontend-sigma.vercel.app"],
-    methods: ["POST", "GET"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
 );
