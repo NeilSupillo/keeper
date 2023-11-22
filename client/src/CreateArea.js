@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios, { HttpStatusCode } from "axios";
 
 function CreateArea(props) {
+  console.log(props.toEdit.content, props.toEdit.title);
   const [note, setNote] = useState({
     title: "",
     content: "",
@@ -19,7 +20,7 @@ function CreateArea(props) {
   }
 
   const submitNote = () => {
-    console.log(note);
+    // console.log(note);
     axios
       .post("http://localhost:5555/notes", note)
       .then(() => {

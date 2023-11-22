@@ -46,6 +46,21 @@ app.post("/notes", async (request, response) => {
   }
 });
 
+app.delete("/notes/:id", async (request, response) => {
+  try {
+    const { id } = request.params;
+    books.splice(id, 1);
+
+    // if (!result) {
+    //   return response.status(404).send({ message: `Book not found` });
+    // }
+    return response.status(200).send({ message: `Book deleted successfully` });
+  } catch (error) {
+    console.log(error.message);
+    return response.status(500).send({ message: error.message });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`app is listening to port: ${PORT}`);
 });

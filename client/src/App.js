@@ -8,32 +8,36 @@ import axios, { HttpStatusCode } from "axios";
 function App() {
   const [books, setBooks] = useState([]);
   const [main, setMain] = useState([]);
-  const [notes, setNotes] = useState([]);
+  const [editNotes, setEditNotes] = useState({
+    title: "",
+    content: "",
+  });
 
   function getBooks() {
     axios
       .get("http://localhost:5555/notes")
       .then((response) => {
         data(response.data.data);
-        console.log(response.data.data);
+        //console.log(response.data.data);
       })
       .catch((error) => {
         console.log(error);
       });
   }
-
-  function deleteNote(id) {
-    setBooks((prevNotes) => {
-      return prevNotes.filter((noteItem, index) => {
-        return index !== id;
-      });
-    });
-  }
-
+  // set data to usestate
   function data(arr) {
     setBooks(arr);
     setMain(arr);
   }
+  function editBook(data) {
+    setEditNotes(data);
+    // setBooks((prevNotes) => {
+    //   return prevNotes.filter((noteItem, index) => {
+    //     return index !== id;
+    //   });
+    // });
+  }
+
   // get data from server
   useEffect(() => {
     getBooks();
@@ -42,7 +46,7 @@ function App() {
   return (
     <div>
       <Header />
-      <CreateArea onAdd={getBooks} />
+      <CreateArea onAdd={getBooks} toEdit={editNotes} />
       <div className="notes-container">
         {books.map((noteItem, index) => {
           return (
@@ -51,7 +55,8 @@ function App() {
               id={index}
               title={noteItem.title}
               content={noteItem.content}
-              onDelete={deleteNote}
+              onDelete={getBooks}
+              onEdit={editBook}
             />
           );
         })}
