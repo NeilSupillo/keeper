@@ -8,13 +8,12 @@ html {
 }
 body {
   background: #eee;
-  padding: 0 16px;
 }
 
 header {
   background-color: #f5ba13;
-  margin: auto -16px;
-  padding: 16px 32px;
+  margin: auto;
+  padding: 0.7rem;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
 
@@ -22,6 +21,7 @@ header h1 {
   color: #fff;
   font-family: "McLaren", cursive;
   font-weight: 200;
+  font-size: 1.3rem;
 }
 
 footer {
@@ -34,7 +34,8 @@ footer {
 footer p {
   color: #ccc;
 }
-.note {
+.note,
+.edit-note {
   background: #fff;
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
@@ -43,18 +44,30 @@ footer p {
   margin: 16px;
   float: left;
 }
-.note h1 {
+.note h1,
+.note input {
   font-size: 1.1em;
   margin-bottom: 6px;
 }
-.note p {
-  font-size: 1.1em;
+.note p,
+.note textarea {
+  font-size: 1.1rem;
   margin-bottom: 10px;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-
-.note button {
+.note p {
+  min-height: 44px;
+  padding: 4px;
+  font-weight: 400;
+  color: grey;
+}
+.note h1 {
+  padding: 4px;
+  color: grey;
+}
+.note button,
+.edit-note button {
   position: relative;
   float: right;
   margin-right: 10px;
@@ -73,17 +86,26 @@ footer p {
   background: #fff;
   padding: 15px;
   border-radius: 7px;
-  box-shadow: 0 1px 5px rgb(138, 137, 137);
+  box-shadow: 0 1px 5px grey;
 }
 .create-note input,
-.create-note textarea {
+.create-note textarea,
+.note input,
+.note textarea {
   width: 100%;
   border: none;
   padding: 4px;
   outline: none;
-  font-size: 1.2em;
   font-family: inherit;
   resize: none;
+  color: grey;
+}
+.create-note input {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.create-note textarea {
+  font-size: 1.1rem;
 }
 .create-note button {
   position: absolute;
@@ -109,7 +131,25 @@ footer p {
   grid-auto-columns: auto;
   grid-template-columns: 240px;
   grid-template-columns: repeat(auto-fill, 270px);
-  grid-gap: 10px;
+}
+
+button img {
+  width: 2rem;
+}
+.note-button {
+  background-color: transparent;
+}
+.note input {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.note textarea {
+  font-size: 1.1rem;
+}
+
+.note h1 {
+  word-wrap: break-word;
+  white-space: normal;
 }
 /*
 otes-container {

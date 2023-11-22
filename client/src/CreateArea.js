@@ -2,11 +2,21 @@ import React, { useState } from "react";
 import axios, { HttpStatusCode } from "axios";
 
 function CreateArea(props) {
-  console.log(props.toEdit.content, props.toEdit.title);
+  const [bol, setbol] = useState(true);
+
   const [note, setNote] = useState({
     title: "",
     content: "",
   });
+
+  if (props.toEdit.content && bol === true) {
+    console.log(props.toEdit.content, props.toEdit.title);
+    setNote({
+      title: props.toEdit.title,
+      content: props.toEdit.content,
+    });
+    setbol(false);
+  }
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -29,6 +39,7 @@ function CreateArea(props) {
           title: "",
           content: "",
         });
+        setbol(true);
       })
       .catch((error) => {
         //alert(`An error happened. Please Check console`);

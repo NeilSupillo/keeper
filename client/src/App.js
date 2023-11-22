@@ -3,11 +3,11 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
-import axios, { HttpStatusCode } from "axios";
+import axios from "axios";
+//import { get } from "mongoose";
 
 function App() {
   const [books, setBooks] = useState([]);
-  const [main, setMain] = useState([]);
   const [editNotes, setEditNotes] = useState({
     title: "",
     content: "",
@@ -23,14 +23,18 @@ function App() {
       .catch((error) => {
         console.log(error);
       });
+    setEditNotes({
+      title: "",
+      content: "",
+    });
   }
-  // set data to usestate
+  // set data to usestat
   function data(arr) {
     setBooks(arr);
-    setMain(arr);
+    //onsole.log(arr);
   }
-  function editBook(data) {
-    setEditNotes(data);
+  function editBook() {
+    getBooks();
     // setBooks((prevNotes) => {
     //   return prevNotes.filter((noteItem, index) => {
     //     return index !== id;
@@ -52,7 +56,7 @@ function App() {
           return (
             <Note
               key={index}
-              id={index}
+              id={noteItem._id}
               title={noteItem.title}
               content={noteItem.content}
               onDelete={getBooks}
