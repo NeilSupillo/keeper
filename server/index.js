@@ -9,8 +9,8 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://keeper-alpha.vercel.app/"],
-    methods: ["POST", "GET"],
+    origin: ["https://keeper-frontend-sigma.vercel.app/"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
 );

@@ -14,6 +14,7 @@ function App() {
   });
 
   function getBooks() {
+    axios.defaults.withCredentials = true;
     axios
       .get("https://keeper-alpha.vercel.app/notes")
       .then((response) => {
