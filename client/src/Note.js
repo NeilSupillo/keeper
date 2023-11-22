@@ -6,7 +6,9 @@ import edit from "./img/edit.png";
 import cancel from "./img/cancel.png";
 
 function Note(props) {
+  
   const handleDeleteBook = () => {
+    axios.defaults.withCredentials = true;
     axios
       .delete(`https://keeper-alpha.vercel.app/notes/${props.id}`)
       .then(() => {
