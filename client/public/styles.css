@@ -132,7 +132,10 @@ footer p {
   grid-template-columns: 240px;
   grid-template-columns: repeat(auto-fill, 270px);
 }
-
+.container {
+  max-width: 500px;
+  margin: auto;
+}
 button img {
   width: 2rem;
 }
