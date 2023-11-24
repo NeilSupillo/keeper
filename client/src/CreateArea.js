@@ -48,7 +48,7 @@ function CreateArea(props) {
   };
 
   return (
-    <div>
+    <div className="container">
       <div className="create-note">
         <input
           name="title"
